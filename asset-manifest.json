@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3f0ea05a.chunk.css",
+    "main.js": "/static/js/main.ff7ba651.chunk.js",
+    "main.js.map": "/static/js/main.ff7ba651.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.db3c92d2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.db3c92d2.js.map",
+    "static/css/2.9522b9fe.chunk.css": "/static/css/2.9522b9fe.chunk.css",
+    "static/js/2.2a1a2e3b.chunk.js": "/static/js/2.2a1a2e3b.chunk.js",
+    "static/js/2.2a1a2e3b.chunk.js.map": "/static/js/2.2a1a2e3b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.d5463ac71da27ad300a3393953c91dc3.js": "/precache-manifest.d5463ac71da27ad300a3393953c91dc3.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.9522b9fe.chunk.css.map": "/static/css/2.9522b9fe.chunk.css.map",
+    "static/css/main.3f0ea05a.chunk.css.map": "/static/css/main.3f0ea05a.chunk.css.map",
+    "static/js/2.2a1a2e3b.chunk.js.LICENSE.txt": "/static/js/2.2a1a2e3b.chunk.js.LICENSE.txt",
+    "static/media/bell1.png": "/static/media/bell1.0d7381dc.png",
+    "static/media/bell2.png": "/static/media/bell2.1d078499.png",
+    "static/media/bell3.png": "/static/media/bell3.bfd81ba3.png",
+    "static/media/bell4.png": "/static/media/bell4.5894a3a2.png",
+    "static/media/coin1.png": "/static/media/coin1.33d6e556.png",
+    "static/media/coin2.png": "/static/media/coin2.0f6c86e7.png",
+    "static/media/coin3.png": "/static/media/coin3.b8397bab.png",
+    "static/media/coin4.png": "/static/media/coin4.73aa4cf0.png",
+    "static/media/ghprojectlogo.png": "/static/media/ghprojectlogo.7e3a7c08.png",
+    "static/media/gwent1.png": "/static/media/gwent1.2bc1baa1.png",
+    "static/media/gwent2.png": "/static/media/gwent2.d35f7a08.png",
+    "static/media/ico1.png": "/static/media/ico1.3193b008.png",
+    "static/media/ico2.png": "/static/media/ico2.f6fbb14e.png",
+    "static/media/ico3.png": "/static/media/ico3.02f2b0d7.png",
+    "static/media/ico4.png": "/static/media/ico4.9557c21c.png",
+    "static/media/myphoto.png": "/static/media/myphoto.831035f5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.db3c92d2.js",
+    "static/css/2.9522b9fe.chunk.css",
+    "static/js/2.2a1a2e3b.chunk.js",
+    "static/css/main.3f0ea05a.chunk.css",
+    "static/js/main.ff7ba651.chunk.js"
+  ]
+}
