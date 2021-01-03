@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.75dd6835.chunk.css",
-    "main.js": "/static/js/main.4f07090b.chunk.js",
-    "main.js.map": "/static/js/main.4f07090b.chunk.js.map",
+    "main.css": "/static/css/main.76cd1c29.chunk.css",
+    "main.js": "/static/js/main.9313152d.chunk.js",
+    "main.js.map": "/static/js/main.9313152d.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.db3c92d2.js",
     "runtime-main.js.map": "/static/js/runtime-main.db3c92d2.js.map",
     "static/css/2.9522b9fe.chunk.css": "/static/css/2.9522b9fe.chunk.css",
-    "static/js/2.2a1a2e3b.chunk.js": "/static/js/2.2a1a2e3b.chunk.js",
-    "static/js/2.2a1a2e3b.chunk.js.map": "/static/js/2.2a1a2e3b.chunk.js.map",
+    "static/js/2.b915e61e.chunk.js": "/static/js/2.b915e61e.chunk.js",
+    "static/js/2.b915e61e.chunk.js.map": "/static/js/2.b915e61e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.ee23ee69278ba8bfbbb20ced30404704.js": "/precache-manifest.ee23ee69278ba8bfbbb20ced30404704.js",
+    "precache-manifest.21263d8e32ec0b36dedc1008d2b88113.js": "/precache-manifest.21263d8e32ec0b36dedc1008d2b88113.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.9522b9fe.chunk.css.map": "/static/css/2.9522b9fe.chunk.css.map",
-    "static/css/main.75dd6835.chunk.css.map": "/static/css/main.75dd6835.chunk.css.map",
-    "static/js/2.2a1a2e3b.chunk.js.LICENSE.txt": "/static/js/2.2a1a2e3b.chunk.js.LICENSE.txt",
+    "static/css/main.76cd1c29.chunk.css.map": "/static/css/main.76cd1c29.chunk.css.map",
+    "static/js/2.b915e61e.chunk.js.LICENSE.txt": "/static/js/2.b915e61e.chunk.js.LICENSE.txt",
     "static/media/bell1.png": "/static/media/bell1.0d7381dc.png",
     "static/media/bell2.png": "/static/media/bell2.1d078499.png",
     "static/media/bell3.png": "/static/media/bell3.bfd81ba3.png",
@@ -22,20 +22,24 @@
     "static/media/coin2.png": "/static/media/coin2.0f6c86e7.png",
     "static/media/coin3.png": "/static/media/coin3.b8397bab.png",
     "static/media/coin4.png": "/static/media/coin4.73aa4cf0.png",
+    "static/media/django_logo.jpg": "/static/media/django_logo.02711c2c.jpg",
+    "static/media/flask_logo.png": "/static/media/flask_logo.c2279c92.png",
+    "static/media/flutter_logo.png": "/static/media/flutter_logo.303729d0.png",
     "static/media/ghprojectlogo.png": "/static/media/ghprojectlogo.7e3a7c08.png",
-    "static/media/gwent1.png": "/static/media/gwent1.2bc1baa1.png",
-    "static/media/gwent2.png": "/static/media/gwent2.d35f7a08.png",
     "static/media/ico1.png": "/static/media/ico1.3193b008.png",
     "static/media/ico2.png": "/static/media/ico2.f6fbb14e.png",
     "static/media/ico3.png": "/static/media/ico3.02f2b0d7.png",
     "static/media/ico4.png": "/static/media/ico4.9557c21c.png",
-    "static/media/myphoto.png": "/static/media/myphoto.831035f5.png"
+    "static/media/myphoto.png": "/static/media/myphoto.831035f5.png",
+    "static/media/pygame_logo.png": "/static/media/pygame_logo.be6902e2.png",
+    "static/media/react_logo.png": "/static/media/react_logo.d3998c6a.png",
+    "static/media/spring_logo.png": "/static/media/spring_logo.0881dacc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.db3c92d2.js",
     "static/css/2.9522b9fe.chunk.css",
-    "static/js/2.2a1a2e3b.chunk.js",
-    "static/css/main.75dd6835.chunk.css",
-    "static/js/main.4f07090b.chunk.js"
+    "static/js/2.b915e61e.chunk.js",
+    "static/css/main.76cd1c29.chunk.css",
+    "static/js/main.9313152d.chunk.js"
   ]
 }

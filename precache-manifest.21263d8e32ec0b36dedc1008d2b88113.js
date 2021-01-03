@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f902d5e77ac8d1ebeac0d42338ff3250",
+    "revision": "d4b6b64cb2c86c698a5b9e86a4dafe53",
     "url": "/index.html"
   },
   {
-    "revision": "ab0156a0fbfd635be37e",
+    "revision": "93f1216a769691a3efea",
     "url": "/static/css/2.9522b9fe.chunk.css"
   },
   {
-    "revision": "91de24dc94f9565f9132",
-    "url": "/static/css/main.75dd6835.chunk.css"
+    "revision": "9138920aa42a6717b702",
+    "url": "/static/css/main.76cd1c29.chunk.css"
   },
   {
-    "revision": "ab0156a0fbfd635be37e",
-    "url": "/static/js/2.2a1a2e3b.chunk.js"
+    "revision": "93f1216a769691a3efea",
+    "url": "/static/js/2.b915e61e.chunk.js"
   },
   {
     "revision": "01e059b6b86ae8a4e93c681c59d8c6bc",
-    "url": "/static/js/2.2a1a2e3b.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.b915e61e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "91de24dc94f9565f9132",
-    "url": "/static/js/main.4f07090b.chunk.js"
+    "revision": "9138920aa42a6717b702",
+    "url": "/static/js/main.9313152d.chunk.js"
   },
   {
     "revision": "81a3df07373d298e18cf",
@@ -60,16 +60,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/coin4.73aa4cf0.png"
   },
   {
+    "revision": "02711c2cf037c786ebb844af1328f809",
+    "url": "/static/media/django_logo.02711c2c.jpg"
+  },
+  {
+    "revision": "c2279c92f9679f8c6d9e06ff8a85fb51",
+    "url": "/static/media/flask_logo.c2279c92.png"
+  },
+  {
+    "revision": "303729d0930c9d5f80ac222a9d27908d",
+    "url": "/static/media/flutter_logo.303729d0.png"
+  },
+  {
     "revision": "7e3a7c0862db9be0a8e22a3ba0343362",
     "url": "/static/media/ghprojectlogo.7e3a7c08.png"
-  },
-  {
-    "revision": "2bc1baa1bdd387ed3a305e7c3fd66fac",
-    "url": "/static/media/gwent1.2bc1baa1.png"
-  },
-  {
-    "revision": "d35f7a0838ad8b8d6f84151a3496bcd8",
-    "url": "/static/media/gwent2.d35f7a08.png"
   },
   {
     "revision": "3193b008ee3c8128fba00930650f5508",
@@ -90,5 +94,17 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "831035f5d7d3924a178309c4fde4b9a9",
     "url": "/static/media/myphoto.831035f5.png"
+  },
+  {
+    "revision": "be6902e2388d4e587a44d2745b1255b6",
+    "url": "/static/media/pygame_logo.be6902e2.png"
+  },
+  {
+    "revision": "d3998c6af64f2efad39afa98c9d3f30a",
+    "url": "/static/media/react_logo.d3998c6a.png"
+  },
+  {
+    "revision": "0881daccb5178410b18a1a36984da095",
+    "url": "/static/media/spring_logo.0881dacc.png"
   }
 ]);
