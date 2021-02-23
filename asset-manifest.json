@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.76cd1c29.chunk.css",
-    "main.js": "/static/js/main.9313152d.chunk.js",
-    "main.js.map": "/static/js/main.9313152d.chunk.js.map",
+    "main.css": "/static/css/main.1978d6f0.chunk.css",
+    "main.js": "/static/js/main.c11bdfe4.chunk.js",
+    "main.js.map": "/static/js/main.c11bdfe4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.db3c92d2.js",
     "runtime-main.js.map": "/static/js/runtime-main.db3c92d2.js.map",
     "static/css/2.9522b9fe.chunk.css": "/static/css/2.9522b9fe.chunk.css",
     "static/js/2.b915e61e.chunk.js": "/static/js/2.b915e61e.chunk.js",
     "static/js/2.b915e61e.chunk.js.map": "/static/js/2.b915e61e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.21263d8e32ec0b36dedc1008d2b88113.js": "/precache-manifest.21263d8e32ec0b36dedc1008d2b88113.js",
+    "precache-manifest.eb35ce1a09ba2115565c99bd3e0f0c71.js": "/precache-manifest.eb35ce1a09ba2115565c99bd3e0f0c71.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.9522b9fe.chunk.css.map": "/static/css/2.9522b9fe.chunk.css.map",
-    "static/css/main.76cd1c29.chunk.css.map": "/static/css/main.76cd1c29.chunk.css.map",
+    "static/css/main.1978d6f0.chunk.css.map": "/static/css/main.1978d6f0.chunk.css.map",
     "static/js/2.b915e61e.chunk.js.LICENSE.txt": "/static/js/2.b915e61e.chunk.js.LICENSE.txt",
     "static/media/bell1.png": "/static/media/bell1.0d7381dc.png",
     "static/media/bell2.png": "/static/media/bell2.1d078499.png",
@@ -26,6 +26,7 @@
     "static/media/flask_logo.png": "/static/media/flask_logo.c2279c92.png",
     "static/media/flutter_logo.png": "/static/media/flutter_logo.303729d0.png",
     "static/media/ghprojectlogo.png": "/static/media/ghprojectlogo.7e3a7c08.png",
+    "static/media/golang_logo.png": "/static/media/golang_logo.dbe25742.png",
     "static/media/ico1.png": "/static/media/ico1.3193b008.png",
     "static/media/ico2.png": "/static/media/ico2.f6fbb14e.png",
     "static/media/ico3.png": "/static/media/ico3.02f2b0d7.png",
@@ -39,7 +40,7 @@
     "static/js/runtime-main.db3c92d2.js",
     "static/css/2.9522b9fe.chunk.css",
     "static/js/2.b915e61e.chunk.js",
-    "static/css/main.76cd1c29.chunk.css",
-    "static/js/main.9313152d.chunk.js"
+    "static/css/main.1978d6f0.chunk.css",
+    "static/js/main.c11bdfe4.chunk.js"
   ]
 }

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d4b6b64cb2c86c698a5b9e86a4dafe53",
+    "revision": "e258a28237c5054c60a49f407093cbee",
     "url": "/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.9522b9fe.chunk.css"
   },
   {
-    "revision": "9138920aa42a6717b702",
-    "url": "/static/css/main.76cd1c29.chunk.css"
+    "revision": "fbf2ca30f3343a4f360f",
+    "url": "/static/css/main.1978d6f0.chunk.css"
   },
   {
     "revision": "93f1216a769691a3efea",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.b915e61e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9138920aa42a6717b702",
-    "url": "/static/js/main.9313152d.chunk.js"
+    "revision": "fbf2ca30f3343a4f360f",
+    "url": "/static/js/main.c11bdfe4.chunk.js"
   },
   {
     "revision": "81a3df07373d298e18cf",
@@ -74,6 +74,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7e3a7c0862db9be0a8e22a3ba0343362",
     "url": "/static/media/ghprojectlogo.7e3a7c08.png"
+  },
+  {
+    "revision": "dbe2574283efeeee14be1b06c1898628",
+    "url": "/static/media/golang_logo.dbe25742.png"
   },
   {
     "revision": "3193b008ee3c8128fba00930650f5508",
