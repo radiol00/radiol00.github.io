@@ -1,6 +1,6 @@
 ---
 title : "Zainteresowany?"
-bg_image : "images/backgrounds/need-service.jpg"
+bg_image : "images/backgrounds/contact-us-bg.jpg"
 button:
   enable : true
   label : "Skontaktuj się!"

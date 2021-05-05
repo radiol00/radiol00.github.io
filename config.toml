@@ -90,7 +90,7 @@ link = "https://github.com/radiol00"
 
 [[params.social]]
 icon = "fab fa-linkedin"
-link = "https://www.linkedin.com/in/somratpro"
+link = "https://www.linkedin.com/in/tobiasz-pokorniecki"
 
 
 ################################### Polish language #####################################
@@ -121,23 +121,11 @@ weight = 2
 [[Languages.en.menu.main]]
 name = "Umiejętności"
 pre = "#"
-url = "skills"
+url = "service"
 weight = 3
-
-[[Languages.en.menu.main]]
-name = "Portfolio"
-pre = "#"
-url = "portfolio"
-weight = 4
 
 [[Languages.en.menu.main]]
 name = "Referencje"
 pre = "#"
 url = "testimonial"
 weight = 5
-
-[[Languages.en.menu.main]]
-name = "Kontakt"
-pre = "#"
-url = "contact"
-weight = 6

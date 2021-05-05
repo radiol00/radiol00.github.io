@@ -66,4 +66,4 @@ custom_css: ""
 
 <p>Jestem absolwentem informatyki na Uniwersytecie Mikołaja Kopernika w Toruniu. Niedawno obroniłem tytuł inżyniera informatyki pracą opartą na uczeniu maszynowym oraz splotowych sieciach neuronowych. Obecnie staram się o tytuł magistra na tym samym uniwersytecie.</p>
 <p>Przez technikum i studia ciągnęły się za mną najróżniejsze języki programowania, jednak najbardziej zainteresowała mnie sfera WebApp i MobileApp developmentu. Swoją przygodę z aplikacjami zacząłem w 2019 roku tworząc, w oparciu o React.js, projekt zespołowy JudiBell, który zajął drugie miejsce w rankingu pod względem potencjału biznesowego.</p>
-<p>Obecnie rozwijam swoje umiejętności we Flutter oraz GoLang.</p>
+<p>Obecnie pracuję dla firmy <a style="color:inherit; text-decoration:inherit;" href="http://www.ais.pl" target="_blank">AIS.PL w Toruniu</a> na stanowisku Web & Mobile App Developer i rozwijam swoje umiejętności we Flutter oraz GoLang.</p>
