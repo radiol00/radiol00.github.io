@@ -45,7 +45,7 @@ const portfolioDataForClient = portfolioData.map((p) => ({
               cat !== 'All' && cat in categoryColors ? `--cat-color: ${categoryColors[cat]}` : ''
             }
           >
-            {cat}
+            {cat === 'All' ? ui.projects.all : cat}
             <span class="pf-filter-count">
               {cat === 'All'
                 ? portfolioData.length
@@ -114,7 +114,7 @@ const portfolioDataForClient = portfolioData.map((p) => ({
             <div class="portfolio-footer">
               <span class="portfolio-title">{project.title}</span>
               <span class="portfolio-img-count">
-                {project.images.length > 1 ? `${project.images.length} screens` : '1 screen'}
+                {project.images.length > 1 ? `${project.images.length} ${ui.portfolio.screens}` : `1 ${ui.portfolio.screen}`}
               </span>
             </div>
           </div>
@@ -126,11 +126,12 @@ const portfolioDataForClient = portfolioData.map((p) => ({
 
 <div
   id="portfolio-modal"
+  data-label-screen={ui.portfolio.viewScreenN}
   class="modal-backdrop"
   aria-hidden="true"
   role="dialog"
   aria-modal="true"
-  aria-label="Project viewer"
+  aria-label={ui.portfolio.viewer}
 >
   <div class="modal-box">
     <div class="modal-topbar">
@@ -139,12 +140,12 @@ const portfolioDataForClient = portfolioData.map((p) => ({
         <span id="pf-modal-title" class="modal-title"></span>
       </div>
       <div class="modal-topbar-right">
-        <div class="zoom-controls" aria-label="Zoom controls">
+        <div class="zoom-controls" aria-label={ui.portfolio.zoomControls}>
           <button
             id="pf-zoom-out"
             class="zoom-btn"
-            aria-label="Zoom out"
-            title="Zoom out (−)"
+            aria-label={ui.portfolio.zoomOutLabel}
+            title={ui.portfolio.zoomOut}
             disabled
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -154,7 +155,7 @@ const portfolioDataForClient = portfolioData.map((p) => ({
             </svg>
           </button>
           <span id="pf-zoom-level" class="zoom-level-label">1×</span>
-          <button id="pf-zoom-in" class="zoom-btn" aria-label="Zoom in" title="Zoom in (+)">
+          <button id="pf-zoom-in" class="zoom-btn" aria-label={ui.portfolio.zoomInLabel} title={ui.portfolio.zoomIn}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="7"></circle><path
                 stroke-linecap="round"
@@ -164,8 +165,8 @@ const portfolioDataForClient = portfolioData.map((p) => ({
           <button
             id="pf-zoom-reset"
             class="zoom-btn zoom-reset"
-            aria-label="Reset zoom"
-            title="Reset zoom (R)"
+            aria-label={ui.portfolio.zoomResetLabel}
+            title={ui.portfolio.zoomReset}
             style="display:none"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -177,7 +178,7 @@ const portfolioDataForClient = portfolioData.map((p) => ({
             </svg>
           </button>
         </div>
-        <button id="pf-modal-close" class="modal-close-btn" aria-label="Close lightbox">
+        <button id="pf-modal-close" class="modal-close-btn" aria-label={ui.portfolio.closeLightbox}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
@@ -190,12 +191,12 @@ const portfolioDataForClient = portfolioData.map((p) => ({
         <img id="pf-modal-img" src="" alt="" class="modal-img" draggable="false" />
       </div>
 
-      <button id="pf-modal-prev" class="modal-nav modal-nav-prev" aria-label="Previous image">
+      <button id="pf-modal-prev" class="modal-nav modal-nav-prev" aria-label={ui.portfolio.prevImage}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
         </svg>
       </button>
-      <button id="pf-modal-next" class="modal-nav modal-nav-next" aria-label="Next image">
+      <button id="pf-modal-next" class="modal-nav modal-nav-next" aria-label={ui.portfolio.nextImage}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
         </svg>
@@ -207,7 +208,7 @@ const portfolioDataForClient = portfolioData.map((p) => ({
             stroke-linecap="round"
             d="M21 21l-4.35-4.35M11 8v6M8 11h6"></path>
         </svg>
-        Scroll or use +/− to zoom · Drag to pan
+        {ui.portfolio.zoomHint}
       </div>
     </div>
 
@@ -1089,7 +1090,7 @@ const portfolioDataForClient = portfolioData.map((p) => ({
     p.images.forEach((_, i) => {
       const dot = document.createElement('button');
       dot.className = `modal-dot ${i === currentSlide ? 'active' : ''}`;
-      dot.setAttribute('aria-label', `View screen ${i + 1}: ${p.slides[i] ?? ''}`);
+      dot.setAttribute('aria-label', `${modal?.dataset.labelScreen ?? ''} ${i + 1}: ${p.slides[i] ?? ''}`);
       dot.addEventListener('click', () => {
         currentSlide = i;
         resetZoom(false);

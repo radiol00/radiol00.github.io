@@ -13,7 +13,8 @@
   "footer": {
     "navigation": "Footer navigation",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "builtBy": "Built by"
   },
   "hero": {
     "welcome": "Welcome to my portfolio",
@@ -24,7 +25,8 @@
     "fullscreen": "Fullscreen",
     "minimize": "Minimize",
     "previousProject": "Previous project",
-    "nextProject": "Next project"
+    "nextProject": "Next project",
+    "greeting": "Hi, I'm"
   },
   "about": {
     "eyebrow": "Get to know me",
@@ -34,7 +36,8 @@
     "experience": "Experience",
     "education": "Education",
     "volunteer": "Volunteer",
-    "portfolio": "Portfolio"
+    "portfolio": "Portfolio",
+    "yearsOfExperience": "Years of Experience"
   },
   "expertise": {
     "eyebrow": "What I do",
@@ -45,7 +48,12 @@
     "title": "Certifications",
     "course": "Course",
     "studying": "Actively Studying",
-    "noLink": "No link available"
+    "noLink": "No link available",
+    "legendCertification": "Certification",
+    "legendProDev": "Professional Development",
+    "legendInProgress": "In Progress",
+    "viewCertificate": "View Certificate",
+    "viewCredential": "View Credential"
   },
   "services": {
     "eyebrow": "Take a Look",
@@ -75,7 +83,22 @@
     "eyebrow": "My portfolio",
     "title": "Portfolio",
     "subtitle": "Projects across different fields and clients.",
-    "viewScreens": "View Screens"
+    "viewScreens": "View Screens",
+    "screens": "screens",
+    "screen": "screen",
+    "viewScreenN": "View screen",
+    "viewer": "Project viewer",
+    "zoomControls": "Zoom controls",
+    "zoomOut": "Zoom out (−)",
+    "zoomIn": "Zoom in (+)",
+    "zoomReset": "Reset zoom (R)",
+    "zoomOutLabel": "Zoom out",
+    "zoomInLabel": "Zoom in",
+    "zoomResetLabel": "Reset zoom",
+    "closeLightbox": "Close lightbox",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "zoomHint": "Scroll or use +/− to zoom · Drag to pan"
   },
   "projects": {
     "eyebrow": "My work",
@@ -90,7 +113,8 @@
     "all": "All",
     "viewOnGithub": "View on GitHub",
     "viewOnGitlab": "View on GitLab",
-    "readPost": "Read the Post"
+    "readPost": "Read the Post",
+    "screenshot": "screenshot"
   },
   "resume": {
     "summary": "Summary",

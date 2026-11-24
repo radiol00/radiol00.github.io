@@ -34,13 +34,13 @@ function cardModClass(type: CertType) {
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">{ui.certifications.title}</h2>
       <div class="flex flex-wrap items-center justify-center gap-4 mt-5">
         <span class="legend-item">
-          <span class="legend-dot dot-earned"></span>Certification
+          <span class="legend-dot dot-earned"></span>{ui.certifications.legendCertification}
         </span>
         <span class="legend-item">
-          <span class="legend-dot dot-pro-dev"></span>Professional Development
+          <span class="legend-dot dot-pro-dev"></span>{ui.certifications.legendProDev}
         </span>
         <span class="legend-item">
-          <span class="legend-dot dot-in-progress"></span>In Progress
+          <span class="legend-dot dot-in-progress"></span>{ui.certifications.legendInProgress}
         </span>
       </div>
     </div>
@@ -93,8 +93,8 @@ function cardModClass(type: CertType) {
                     >
                       <span>
                         {type === 'professional-development'
-                          ? 'View Certificate'
-                          : 'View Credential'}
+                          ? ui.certifications.viewCertificate
+                          : ui.certifications.viewCredential}
                       </span>
                       <svg
                         class="w-3.5 h-3.5"
