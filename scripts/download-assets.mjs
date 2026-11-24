@@ -1,9 +1,26 @@
-import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = join(ROOT, 'public');
+
+// Content lives in src/data/<locale>/<name>.json. Assets are shared between locales,
+// so every locale's file is scanned and the results are merged.
+function localizedDataFiles(name) {
+  const dataDir = join(ROOT, 'src', 'data');
+  if (!existsSync(dataDir)) return [];
+  return readdirSync(dataDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => join(dataDir, d.name, name))
+    .filter((p) => existsSync(p));
+}
+
+function readLocalizedText(name) {
+  return localizedDataFiles(name)
+    .map((p) => readFileSync(p, 'utf8'))
+    .join('\n');
+}
 
 const GOOGLE_FONTS_URL =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap';
@@ -76,10 +93,8 @@ async function downloadIconifyIdentifiers(identifiers, label) {
 // Downloads skill icons defined as Iconify identifiers (e.g. "simple-icons:figma").
 // Local paths (starting with "/") are user-managed and skipped.
 async function ensureSkillIcons() {
-  const skillsPath = join(ROOT, 'src', 'data', 'skills.json');
-  if (!existsSync(skillsPath)) return;
-
-  const text = readFileSync(skillsPath, 'utf8');
+  const text = readLocalizedText('skills.json');
+  if (!text) return;
   const identifiers = new Set();
   for (const [, v] of text.matchAll(/"icon":\s*"([^"]+)"/g))
     if (v.includes(':')) identifiers.add(v);
@@ -90,10 +105,8 @@ async function ensureSkillIcons() {
 // Downloads project colorIcons. Supports both Iconify identifiers (e.g. "devicon:react")
 // and legacy local paths (e.g. "/images/icons/materialdesign/github.svg") in the same field.
 async function ensureProjectColorIcons() {
-  const projectsPath = join(ROOT, 'src', 'data', 'projects.json');
-  if (!existsSync(projectsPath)) return;
-
-  const text = readFileSync(projectsPath, 'utf8');
+  const text = readLocalizedText('projects.json');
+  if (!text) return;
   const identifiers = new Set();
   const localPaths = new Set();
 
@@ -283,12 +296,14 @@ async function ensureProjectImages() {
   if (!githubUser) return;
 
   const dataDir = join(ROOT, 'src', 'data');
-  const projectsPath = join(dataDir, 'projects.json');
-  if (!existsSync(projectsPath)) return;
-
-  const projectsJson = JSON.parse(readFileSync(projectsPath, 'utf8'));
-  const projects = Array.isArray(projectsJson) ? projectsJson : (projectsJson.items ?? []);
-  const githubProjects = projects.filter((p) => p.githubRepo);
+  const projects = localizedDataFiles('projects.json').flatMap((p) => {
+    const json = JSON.parse(readFileSync(p, 'utf8'));
+    return Array.isArray(json) ? json : (json.items ?? []);
+  });
+  // Same repo may appear in several locales; process each repo once.
+  const githubProjects = projects
+    .filter((p) => p.githubRepo)
+    .filter((p, i, all) => all.findIndex((q) => q.githubRepo === p.githubRepo) === i);
   if (githubProjects.length === 0) return;
 
   const cachePath = join(dataDir, 'github-image-cache.json');

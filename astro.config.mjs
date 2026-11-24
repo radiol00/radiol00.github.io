@@ -10,6 +10,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  // Default locale (pl) lives at the site root; other locales are prefixed (/en/).
+  i18n: {
+    defaultLocale: 'pl',
+    locales: ['pl', 'en'],
+    routing: { prefixDefaultLocale: false },
+  },
   output: 'static',
   compressHTML: true,
   // 'attribute' scopes component styles via data-astro-* attributes instead of mangled class names,

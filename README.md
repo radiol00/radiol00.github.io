@@ -175,6 +175,16 @@ All content lives in `src/data/`. Edit these JSON files to update any part of th
 | `projects.json` | Personal project cards with optional GitHub image fetching |
 | `certifications.json` | Credentials and training timeline |
 | `menu.json` | Navigation section labels |
+| `ui.json` | Fixed interface text (buttons, headings, labels, aria-labels, form messages) |
+
+### Languages (i18n)
+
+- Content lives in one folder per language: `src/data/pl/` and `src/data/en/`. Each has the same set of files.
+- Default language is `pl`, served at `/`. English is served at `/en/`.
+- A button in the header switches language. The page also emits `hreflang` links for search engines.
+- Language is **not** auto-detected. The visitor chooses with the button.
+- Add a language: copy `src/data/pl/` to `src/data/<code>/`, add the code to `i18n.locales` in `astro.config.mjs`, and register it in `src/lib/i18n.ts` (imports, `locales`, `htmlLang`, `ogLocale`, `data`). Add a page folder `src/pages/<code>/` (copy `src/pages/en/`).
+- Images and icons are shared between languages. `download-assets.mjs` reads every language folder.
 
 
 ---

@@ -1,5 +1,7 @@
 ---
-import projectsFile from '../data/projects.json';
+import { getData } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const projectsFile = getData(Astro.currentLocale).projects;
 import { augmentProjectsWithImages, type ProjectEntry } from '../lib/fetchGitHub';
 import { withBase } from '../lib/assetPath';
 
@@ -21,8 +23,8 @@ const categoryFilters = [...new Set(allProjectsData.map((p) => p.category))].map
 }));
 
 const filters = [
-  { label: 'Featured', value: 'featured' },
-  { label: 'All', value: 'all' },
+  { label: ui.projects.featured, value: 'featured' },
+  { label: ui.projects.all, value: 'all' },
   ...categoryFilters,
 ];
 
@@ -38,8 +40,8 @@ const projectsJson = JSON.stringify(
 <section id="projects" class="py-24 bg-slate-900/30" style="scroll-margin-top: 80px;">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10 reveal">
-      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">My work</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Featured Projects</h2>
+      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">{ui.projects.eyebrow}</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">{ui.projects.gridTitle}</h2>
     </div>
 
     <div class="flex flex-wrap justify-center gap-2 mb-10 reveal" style="transition-delay:0.1s;">
@@ -142,7 +144,7 @@ const projectsJson = JSON.stringify(
                   </div>
                 )}
                 <span class="view-hint">
-                  <span class="view-hint-text">Click for link to project</span>
+                  <span class="view-hint-text">{ui.projects.clickHint}</span>
                   <svg
                     class="view-hint-arrow"
                     fill="none"
@@ -165,7 +167,7 @@ const projectsJson = JSON.stringify(
     </div>
 
     <p id="projects-empty" class="hidden text-center text-slate-600 text-sm mt-12">
-      No projects in this category yet.
+      {ui.projects.empty}
     </p>
   </div>
 </section>
@@ -179,7 +181,7 @@ const projectsJson = JSON.stringify(
   hidden
 >
   <div class="modal-container" id="modal-container">
-    <button class="modal-close" id="modal-close" aria-label="Close">
+    <button class="modal-close" id="modal-close" aria-label={ui.projects.close}>
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
         <path
           stroke-linecap="round"
@@ -211,7 +213,13 @@ const projectsJson = JSON.stringify(
             height={18}
             class="modal-link-icon"
           />
-          <span id="modal-link-text">View Project</span>
+          <span
+            id="modal-link-text"
+            data-github={ui.projects.viewOnGithub}
+            data-gitlab={ui.projects.viewOnGitlab}
+            data-post={ui.projects.readPost}
+            data-default={ui.projects.viewProject}>{ui.projects.viewProject}</span
+          >
           <svg class="modal-cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
@@ -221,7 +229,7 @@ const projectsJson = JSON.stringify(
             ></path>
           </svg>
         </a>
-        <p id="modal-no-link" class="modal-no-link hidden">Private / No public link available.</p>
+        <p id="modal-no-link" class="modal-no-link hidden">{ui.projects.noLink}</p>
       </div>
     </div>
   </div>
@@ -339,10 +347,10 @@ const projectsJson = JSON.stringify(
 
     if (p.link) {
       modalLink.href = p.link;
-      if (p.link.includes('github.com')) modalLinkTx.textContent = 'View on GitHub';
-      else if (p.link.includes('gitlab')) modalLinkTx.textContent = 'View on GitLab';
-      else if (p.link.includes('blog')) modalLinkTx.textContent = 'Read the Post';
-      else modalLinkTx.textContent = 'View Project';
+      if (p.link.includes('github.com')) modalLinkTx.textContent = modalLinkTx.dataset.github ?? '';
+      else if (p.link.includes('gitlab')) modalLinkTx.textContent = modalLinkTx.dataset.gitlab ?? '';
+      else if (p.link.includes('blog')) modalLinkTx.textContent = modalLinkTx.dataset.post ?? '';
+      else modalLinkTx.textContent = modalLinkTx.dataset.default ?? '';
       modalLink.classList.remove('hidden');
       modalNoLink.classList.add('hidden');
     } else {

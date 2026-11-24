@@ -1,5 +1,7 @@
 ---
-import personalData from '../data/personal.json';
+import { getData } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const personalData = getData(Astro.currentLocale).personal;
 ---
 
 <section id="about" class="py-24 bg-slate-900/30" style="scroll-margin-top: 80px;">
@@ -7,9 +9,9 @@ import personalData from '../data/personal.json';
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12 reveal">
         <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">
-          Get to know me
+          {ui.about.eyebrow}
         </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-0 section-title">About Me</h2>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-0 section-title">{ui.about.title}</h2>
       </div>
 
       <div class="card reveal" style="transition-delay: 0.15s;">
@@ -40,7 +42,7 @@ import personalData from '../data/personal.json';
               </svg>
             </div>
             <div>
-              <h3 class="text-white font-semibold mb-1">Role</h3>
+              <h3 class="text-white font-semibold mb-1">{ui.about.role}</h3>
               <p class="text-slate-400 text-sm">{personalData.title}</p>
             </div>
           </div>
@@ -70,7 +72,7 @@ import personalData from '../data/personal.json';
               </svg>
             </div>
             <div>
-              <h3 class="text-white font-semibold mb-1">Location</h3>
+              <h3 class="text-white font-semibold mb-1">{ui.about.location}</h3>
               <p class="text-slate-400 text-sm">{personalData.location}</p>
             </div>
           </div>
@@ -94,7 +96,7 @@ import personalData from '../data/personal.json';
               </svg>
             </div>
             <div>
-              <h3 class="text-white font-semibold mb-1">Experience</h3>
+              <h3 class="text-white font-semibold mb-1">{ui.about.experience}</h3>
               <p class="text-slate-400 text-sm">
                 {personalData.yearsExperience} Years of Experience
               </p>
@@ -121,7 +123,7 @@ import personalData from '../data/personal.json';
               </svg>
             </div>
             <div>
-              <h3 class="text-white font-semibold mb-1">Education</h3>
+              <h3 class="text-white font-semibold mb-1">{ui.about.education}</h3>
               <p class="text-slate-400 text-sm">{personalData.education}</p>
             </div>
           </div>
@@ -146,7 +148,7 @@ import personalData from '../data/personal.json';
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold mb-1">Volunteer</h3>
+                  <h3 class="text-white font-semibold mb-1">{ui.about.volunteer}</h3>
                   <p class="text-slate-400 text-sm">{personalData.volunteer}</p>
                 </div>
               </div>
@@ -173,7 +175,7 @@ import personalData from '../data/personal.json';
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-white font-semibold mb-1">Portfolio</h3>
+                  <h3 class="text-white font-semibold mb-1">{ui.about.portfolio}</h3>
                   <a
                     href={personalData.portfolioUrl}
                     target="_blank"

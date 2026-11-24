@@ -1,7 +1,9 @@
 ---
-import personalData from '../data/personal.json';
-import siteData from '../data/site.json';
-import menuData from '../data/menu.json';
+import { getData, localePath } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const personalData = getData(Astro.currentLocale).personal;
+const siteData = getData(Astro.currentLocale).site;
+const menuData = getData(Astro.currentLocale).menu;
 import { getSocialLinks } from '../lib/socialLinks';
 
 const currentYear = new Date().getFullYear();
@@ -52,7 +54,7 @@ const { footerAttribution } = siteData;
       </div>
 
       <div class="footer-center">
-        <nav class="flex flex-col gap-2" aria-label="Footer navigation">
+        <nav class="flex flex-col gap-2" aria-label={ui.footer.navigation}>
           {
             navLinks.map((link) => (
               <a href={link.href} class="footer-nav-link">
@@ -97,8 +99,8 @@ const { footerAttribution } = siteData;
             </>
           )
         }
-        &nbsp;·&nbsp;<a href={`${base}privacy.html`} class="hover:text-accent transition-colors">Privacy</a 
-        >&nbsp;·&nbsp;<a href={`${base}terms.html`} class="hover:text-accent transition-colors">Terms</a> 
+        &nbsp;·&nbsp;<a href={localePath(Astro.currentLocale, 'privacy')} class="hover:text-accent transition-colors">{ui.footer.privacy}</a 
+        >&nbsp;·&nbsp;<a href={localePath(Astro.currentLocale, 'terms')} class="hover:text-accent transition-colors">{ui.footer.terms}</a> 
       </p>
       <div class="flex items-center gap-5">
         {

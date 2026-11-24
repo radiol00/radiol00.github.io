@@ -1,5 +1,7 @@
 ---
-import certificationsData from '../data/certifications.json';
+import { getData } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const certificationsData = getData(Astro.currentLocale).certifications;
 
 type CertType = 'certification' | 'professional-development' | 'in-progress';
 
@@ -28,8 +30,8 @@ function cardModClass(type: CertType) {
 <section id="certifications" class="py-24" style="scroll-margin-top: 80px;">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16 reveal">
-      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">Credentials</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Certifications</h2>
+      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">{ui.certifications.eyebrow}</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">{ui.certifications.title}</h2>
       <div class="flex flex-wrap items-center justify-center gap-4 mt-5">
         <span class="legend-item">
           <span class="legend-dot dot-earned"></span>Certification
@@ -69,7 +71,7 @@ function cardModClass(type: CertType) {
                   class={`text-xs font-semibold uppercase tracking-wider ${type === 'professional-development' ? 'text-amber-500/70' : type === 'in-progress' ? 'text-blue-400/80' : 'text-accent'}`}
                 >
                   {cert.issuer}
-                  {type === 'professional-development' && <span class="issuer-tag">Course</span>}
+                  {type === 'professional-development' && <span class="issuer-tag">{ui.certifications.course}</span>}
                 </p>
 
                 <p class="text-slate-400 text-sm leading-relaxed">{cert.description}</p>
@@ -80,7 +82,7 @@ function cardModClass(type: CertType) {
                   {type === 'in-progress' ? (
                     <span class="in-progress-label">
                       <span class="ip-pulse" />
-                      Actively Studying
+                      {ui.certifications.studying}
                     </span>
                   ) : cert.credentialUrl ? (
                     <a
@@ -109,7 +111,7 @@ function cardModClass(type: CertType) {
                       </svg>
                     </a>
                   ) : (
-                    <span class="text-slate-700 text-xs italic">No link available</span>
+                    <span class="text-slate-700 text-xs italic">{ui.certifications.noLink}</span>
                   )}
                 </div>
               </div>

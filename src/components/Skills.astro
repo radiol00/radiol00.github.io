@@ -1,5 +1,6 @@
 ---
-import skillsData from '../data/skills.json';
+import { getData } from '../lib/i18n';
+const skillsData = getData(Astro.currentLocale).skills;
 import { withBase } from '../lib/assetPath';
 
 const { section, categories } = skillsData;

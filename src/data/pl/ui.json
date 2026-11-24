@@ -1,0 +1,108 @@
+{
+  "switchLanguage": "Switch to English",
+  "switchLanguageAria": "Switch language to English",
+  "header": {
+    "toggleTheme": "Toggle light / dark mode",
+    "contactCta": "Contact Me",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "siteNavigation": "Site navigation",
+    "explore": "Explore",
+    "external": "External"
+  },
+  "footer": {
+    "navigation": "Footer navigation",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "hero": {
+    "welcome": "Welcome to my portfolio",
+    "getInTouch": "Get In Touch",
+    "downloadCv": "Download CV",
+    "printResume": "Print Resume",
+    "featuredProjects": "Featured Projects",
+    "fullscreen": "Fullscreen",
+    "minimize": "Minimize",
+    "previousProject": "Previous project",
+    "nextProject": "Next project"
+  },
+  "about": {
+    "eyebrow": "Get to know me",
+    "title": "About Me",
+    "role": "Role",
+    "location": "Location",
+    "experience": "Experience",
+    "education": "Education",
+    "volunteer": "Volunteer",
+    "portfolio": "Portfolio"
+  },
+  "expertise": {
+    "eyebrow": "What I do",
+    "title": "Expertise"
+  },
+  "certifications": {
+    "eyebrow": "Credentials",
+    "title": "Certifications",
+    "course": "Course",
+    "studying": "Actively Studying",
+    "noLink": "No link available"
+  },
+  "services": {
+    "eyebrow": "Take a Look",
+    "title": "Projects & Ventures",
+    "subtitle": "Two sites to visit more of my work."
+  },
+  "contact": {
+    "eyebrow": "Contact me",
+    "title": "Let's talk.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "elsewhere": "Where Else You Can Find Me:",
+    "name": "Name",
+    "subject": "Subject",
+    "message": "Message",
+    "namePlaceholder": "My name…",
+    "subjectPlaceholder": "Let us know…",
+    "messagePlaceholder": "What would you like to tell us?",
+    "send": "Send Message",
+    "sending": "Sending…",
+    "sent": "Message sent! I'll be in touch soon.",
+    "error": "Something went wrong. Please try again.",
+    "networkError": "Network error. Check your connection and try again."
+  },
+  "portfolio": {
+    "eyebrow": "My portfolio",
+    "title": "Portfolio",
+    "subtitle": "Projects across different fields and clients.",
+    "viewScreens": "View Screens"
+  },
+  "projects": {
+    "eyebrow": "My work",
+    "gridTitle": "Featured Projects",
+    "showcaseTitle": "Projects",
+    "viewProject": "View Project",
+    "clickHint": "Click for link to project",
+    "empty": "No projects in this category yet.",
+    "noLink": "Private / No public link available.",
+    "close": "Close",
+    "featured": "Featured",
+    "all": "All",
+    "viewOnGithub": "View on GitHub",
+    "viewOnGitlab": "View on GitLab",
+    "readPost": "Read the Post"
+  },
+  "resume": {
+    "summary": "Summary",
+    "skills": "Technical Skills",
+    "expertise": "Areas of Expertise",
+    "certifications": "Certifications",
+    "projects": "Notable Projects",
+    "education": "Education",
+    "volunteer": "Volunteer"
+  },
+  "policy": {
+    "back": "← Back to portfolio"
+  },
+  "skipLink": "Skip to main content"
+}

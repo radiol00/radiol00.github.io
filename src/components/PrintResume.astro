@@ -1,9 +1,11 @@
 ---
-import personal from '../data/personal.json';
-import skillsData from '../data/skills.json';
-import certsData from '../data/certifications.json';
-import expertiseFile from '../data/expertise.json';
-import projectsFile from '../data/projects.json';
+import { getData } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const personal = getData(Astro.currentLocale).personal;
+const skillsData = getData(Astro.currentLocale).skills;
+const certsData = getData(Astro.currentLocale).certifications;
+const expertiseFile = getData(Astro.currentLocale).expertise;
+const projectsFile = getData(Astro.currentLocale).projects;
 const expertiseData = expertiseFile.items;
 const resumeProjects = projectsFile.items.filter(p => (p as any).resume);
 
@@ -28,12 +30,12 @@ const inProgressCerts = certsData.filter(c => c.status !== 'Earned');
   <hr class="header-rule" />
 
   <section class="resume-section">
-    <h2 class="section-title">Summary</h2>
+    <h2 class="section-title">{ui.resume.summary}</h2>
     <p class="body-text">{personal.bio}</p>
   </section>
 
   <section class="resume-section">
-    <h2 class="section-title">Technical Skills</h2>
+    <h2 class="section-title">{ui.resume.skills}</h2>
     <div class="skills-grid">
       {skillsData.categories.map(category => (
         <div class="skill-row">
@@ -45,12 +47,12 @@ const inProgressCerts = certsData.filter(c => c.status !== 'Earned');
   </section>
 
   <section class="resume-section">
-    <h2 class="section-title">Areas of Expertise</h2>
+    <h2 class="section-title">{ui.resume.expertise}</h2>
     <p class="body-text">{expertiseData.map(e => e.title).join('  ·  ')}</p>
   </section>
 
   <section class="resume-section">
-    <h2 class="section-title">Certifications</h2>
+    <h2 class="section-title">{ui.resume.certifications}</h2>
     <div class="cert-list">
       {earnedCerts.map(cert => (
         <span class="cert-item cert-earned">
@@ -66,7 +68,7 @@ const inProgressCerts = certsData.filter(c => c.status !== 'Earned');
   </section>
 
   <section class="resume-section">
-    <h2 class="section-title">Notable Projects</h2>
+    <h2 class="section-title">{ui.resume.projects}</h2>
     <div class="projects-list">
       {resumeProjects.map(project => project && (
         <div class="project-item">
@@ -82,12 +84,12 @@ const inProgressCerts = certsData.filter(c => c.status !== 'Earned');
 
   <div class="resume-footer-row">
     <section class="resume-section">
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title">{ui.resume.education}</h2>
       <p class="body-text">{personal.education}</p>
     </section>
 
     <section class="resume-section">
-      <h2 class="section-title">Volunteer</h2>
+      <h2 class="section-title">{ui.resume.volunteer}</h2>
       <p class="body-text">{personal.volunteer}</p>
     </section>
   </div>

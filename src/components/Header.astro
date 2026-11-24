@@ -1,7 +1,11 @@
 ---
-import personalData from '../data/personal.json';
-import menu from '../data/menu.json';
-import siteData from '../data/site.json';
+import { getData, localePath, otherLocale, htmlLang } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const altLocale = otherLocale(Astro.currentLocale);
+const langHref = localePath(altLocale);
+const personalData = getData(Astro.currentLocale).personal;
+const menu = getData(Astro.currentLocale).menu;
+const siteData = getData(Astro.currentLocale).site;
 
 const { sections } = menu;
 
@@ -27,7 +31,7 @@ const external = siteData.navExternal
         {personalData.name}
       </a>
 
-      <div class="hidden lg:flex items-center gap-6">
+      <div class="hidden lg:flex items-center gap-6 mx-4 xl:mx-8">
         {
           sections.map((item) => (
             <a href={item.href} class="nav-link nav-link-sm">
@@ -38,7 +42,17 @@ const external = siteData.navExternal
       </div>
 
       <div class="flex items-center gap-3">
-        <label class="switch" aria-label="Toggle light/dark mode" title="Toggle light / dark mode">
+        <a
+          href={langHref}
+          class="lang-btn"
+          hreflang={htmlLang[altLocale]}
+          lang={htmlLang[altLocale]}
+          aria-label={ui.switchLanguageAria}
+          data-lang-switch={altLocale}
+        >
+          {ui.switchLanguage}
+        </a>
+        <label class="switch" aria-label={ui.header.toggleTheme} title={ui.header.toggleTheme}>
           <span class="sun"
             ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
               ><g fill="#918155"
@@ -59,8 +73,8 @@ const external = siteData.navExternal
           <span class="slider"></span>
         </label>
 
-        <a href="#contact" class="cta-btn hidden sm:inline-flex">Contact Me</a>
-        <button id="menu-open-btn" class="hamburger-btn" aria-label="Open menu">
+        <a href="#contact" class="cta-btn hidden xl:inline-flex">{ui.header.contactCta}</a>
+        <button id="menu-open-btn" class="hamburger-btn" aria-label={ui.header.openMenu}>
           <span></span>
           <span></span>
           <span></span>
@@ -104,10 +118,10 @@ const external = siteData.navExternal
   class="overlay"
   role="dialog"
   aria-modal="true"
-  aria-label="Site navigation"
+  aria-label={ui.header.siteNavigation}
   aria-hidden="true"
 >
-  <button id="menu-close-btn" class="overlay-close" aria-label="Close menu">
+  <button id="menu-close-btn" class="overlay-close" aria-label={ui.header.closeMenu}>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
     </svg>
@@ -116,7 +130,7 @@ const external = siteData.navExternal
   <div class="overlay-glow" aria-hidden="true"></div>
 
   <div class="overlay-inner">
-    <p class="overlay-eyebrow">Explore</p>
+    <p class="overlay-eyebrow">{ui.header.explore}</p>
     <nav class="overlay-nav">
       {
         sections.map((item, i) => (
@@ -145,7 +159,7 @@ const external = siteData.navExternal
     </nav>
 
     <div class="overlay-bottom">
-      <p class="overlay-bottom-label">External</p>
+      <p class="overlay-bottom-label">{ui.header.external}</p>
       {
         external.map((link) => (
           <a href={link.url} target="_blank" rel="noopener" class="overlay-quick-link">
@@ -171,6 +185,34 @@ const external = siteData.navExternal
 </div>
 
 <style>
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.9rem;
+    border-radius: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    color: #fff;
+    background: rgb(99 102 241);
+    border: 1px solid rgb(99 102 241);
+    transition: background 0.2s ease;
+  }
+  .lang-btn:hover {
+    background: rgb(79 70 229);
+  }
+  .lang-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  @media (max-width: 480px) {
+    .lang-btn {
+      padding: 0.35rem 0.6rem;
+      font-size: 0.7rem;
+    }
+  }
+
   .cta-btn {
     align-items: center;
     padding: 0.45rem 1rem;
@@ -308,10 +350,10 @@ const external = siteData.navExternal
     transform: translateX(30px);
     background-color: var(--accent-blue);
   }
+  /* The switch is scaled to 75%, so trim the leftover layout space on small screens. */
   @media (max-width: 767px) {
     .switch {
-      position: absolute;
-      right: 15vw;
+      margin: 0 -8px;
     }
   }
 
@@ -734,12 +776,6 @@ const external = siteData.navExternal
   }
   .nav-link.active::after {
     width: 100%;
-  }
-
-  @media (min-width: 640px) and (max-width: 767px) {
-    header .container .gap-3 {
-      gap: 30vw !important;
-    }
   }
 
   @media (min-width: 1024px) and (max-width: 1279px) {

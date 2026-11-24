@@ -1,5 +1,7 @@
 ---
-import projectsFile from '../data/projects.json';
+import { getData } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const projectsFile = getData(Astro.currentLocale).projects;
 import { withBase } from '../lib/assetPath';
 import { icons } from '../lib/icons';
 const projectsData = projectsFile.items;
@@ -8,17 +10,17 @@ const projectsData = projectsFile.items;
 <section id="projects" class="projects-section">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12 reveal visible">
-      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">My work</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Projects</h2>
+      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">{ui.projects.eyebrow}</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">{ui.projects.showcaseTitle}</h2>
     </div>
 
     <div class="projects-list">
       {
         projectsData.map((project, index) => {
           const hasImages = Boolean(project.backgroundImage && (project as any).images?.length);
-          const ctaLabel = project.link.includes('github.com') ? 'View on GitHub'
-            : project.link.includes('gitlab') ? 'View on GitLab'
-            : project.link ? 'View Project'
+          const ctaLabel = project.link.includes('github.com') ? ui.projects.viewOnGithub
+            : project.link.includes('gitlab') ? ui.projects.viewOnGitlab
+            : project.link ? ui.projects.viewProject
             : null;
 
           return (

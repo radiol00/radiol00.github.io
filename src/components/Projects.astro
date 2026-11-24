@@ -1,5 +1,6 @@
 ---
-import projectsData from '../data/projects.json';
+import { getData } from '../lib/i18n';
+const projectsData = getData(Astro.currentLocale).projects;
 import ProjectsGrid from './ProjectsGrid.astro';
 import ProjectsShowcase from './ProjectsShowcase.astro';
 ---

@@ -1,6 +1,8 @@
 ---
-import personalData from '../data/personal.json';
-import projectsFile from '../data/projects.json';
+import { getData } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const personalData = getData(Astro.currentLocale).personal;
+const projectsFile = getData(Astro.currentLocale).projects;
 import { augmentProjectsWithImages, type ProjectEntry } from '../lib/fetchGitHub';
 const projectsData = projectsFile.items;
 import { getSocialLinks } from '../lib/socialLinks';
@@ -86,7 +88,7 @@ const hasPortrait =
     >
       <div class="order-2 lg:order-1 space-y-6 relative">
         <p class="text-sm font-semibold tracking-widest text-highlight uppercase reveal">
-          Welcome to my portfolio
+          {ui.hero.welcome}
         </p>
 
         <div class="reveal text-backdrop" style="transition-delay: 0.1s;">
@@ -117,15 +119,15 @@ const hasPortrait =
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 reveal" style="transition-delay: 0.3s;">
-          <a href="#contact" class="btn-primary text-center">Get In Touch</a>
+          <a href="#contact" class="btn-primary text-center">{ui.hero.getInTouch}</a>
           {hasCv ? (
             <a
               href={cvHref}
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-secondary text-center">Download CV</a>
+              class="btn-secondary text-center">{ui.hero.downloadCv}</a>
           ) : (
-            <button onclick="window.print()" class="btn-secondary text-center">Print Resume</button>
+            <button onclick="window.print()" class="btn-secondary text-center">{ui.hero.printResume}</button>
           )}
         </div>
 
@@ -171,14 +173,14 @@ const hasPortrait =
         >
           <article class="project-frame" id="project-frame">
             <div class="pf-header" id="project-frame-header">
-              <h2 class="pf-title">Featured Projects</h2>
+              <h2 class="pf-title">{ui.hero.featuredProjects}</h2>
               <div class="pf-btn-group">
                 <button
                   type="button"
                   id="pf-fullscreen-btn"
                   class="pf-btn"
                   style="--glow-color:rgba(14,165,233,0.8);"
-                  aria-label="Fullscreen"
+                  aria-label={ui.hero.fullscreen}
                 >
                   <svg viewBox="0 0 512 512" class="pf-btn-icon" fill="currentColor">
                     <path
@@ -191,7 +193,7 @@ const hasPortrait =
                   id="pf-close-btn"
                   class="pf-btn"
                   style="--glow-color:rgba(99,102,241,0.8);"
-                  aria-label="Minimize"
+                  aria-label={ui.hero.minimize}
                 >
                   <svg viewBox="0 0 384 512" class="pf-btn-icon" fill="currentColor">
                     <path
@@ -260,7 +262,7 @@ const hasPortrait =
             <button
               id="slider-prev"
               class="slider-nav-btn slider-nav-prev"
-              aria-label="Previous project"
+              aria-label={ui.hero.previousProject}
             >
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="slider-nav-icon">
                 <path
@@ -273,7 +275,7 @@ const hasPortrait =
             <button
               id="slider-next"
               class="slider-nav-btn slider-nav-next"
-              aria-label="Next project"
+              aria-label={ui.hero.nextProject}
             >
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="slider-nav-icon">
                 <path

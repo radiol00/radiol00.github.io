@@ -1,21 +1,27 @@
 ---
+import { getData, locales, resolveLocale, htmlLang, ogLocale, localePath, defaultLocale } from '../lib/i18n';
 import '../styles/global.css';
-import siteData from '../data/site.json';
-import personalData from '../data/personal.json';
+const siteData = getData(Astro.currentLocale).site;
+const personalData = getData(Astro.currentLocale).personal;
 
 interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  /** Page slug for hreflang links: '' (home), 'privacy', 'terms'. */
+  page?: string;
 }
 
 // BASE_URL reflects astro.config.mjs `base` (set via BASE_PATH env var).
 // Prepend it to every public/ asset path so the site works when deployed to a sub-directory.
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const { title = siteData.title, description = siteData.description, ogImage } = Astro.props;
+const { title = siteData.title, description = siteData.description, ogImage, page = '' } = Astro.props;
+const locale = resolveLocale(Astro.currentLocale);
 
 const siteOrigin = Astro.site?.origin ?? personalData.url;
 const canonicalURL = `${siteOrigin}${Astro.url.pathname}`;
+const alternates = locales.map((l) => ({ lang: htmlLang[l], href: `${siteOrigin}${localePath(l, page)}` }));
+const defaultHref = `${siteOrigin}${localePath(defaultLocale, page)}`;
 const resolvedOgImage = ogImage ?? `${siteOrigin}${personalData.photo}`;
 const ogImageAlt = `${personalData.name} — ${personalData.heroRole}`;
 
@@ -69,7 +75,7 @@ function safeJsonLd(obj: object): string {
 ---
 
 <!doctype html>
-<html lang="en" style="color-scheme: dark; background: #020617;" data-theme-key={siteData.themeStorageKey}>
+<html lang={htmlLang[locale]} style="color-scheme: dark; background: #020617;" data-theme-key={siteData.themeStorageKey}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -83,6 +89,8 @@ function safeJsonLd(obj: object): string {
     <meta name="geo.placename" content={`${personalData.addressLocality}, ${personalData.addressRegion}`} />
     <meta name="contact" content={personalData.email} />
     <link rel="canonical" href={canonicalURL} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={defaultHref} />
 
     <!-- Open Graph -->
     <meta property="og:type"         content="website" />
@@ -94,7 +102,7 @@ function safeJsonLd(obj: object): string {
     <meta property="og:image:height" content="460" />
     <meta property="og:image:alt"    content={ogImageAlt} />
     <meta property="og:site_name"    content={siteData.ogSiteName} />
-    <meta property="og:locale"       content="en_US" />
+    <meta property="og:locale"       content={ogLocale[locale]} />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card"        content="summary_large_image" />
@@ -177,7 +185,7 @@ function safeJsonLd(obj: object): string {
     </script>
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link">{getData(Astro.currentLocale).ui.skipLink}</a>
     <slot />
   </body>
 </html>

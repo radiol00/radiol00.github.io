@@ -1,5 +1,7 @@
 ---
-import expertiseFile from '../data/expertise.json';
+import { getData } from '../lib/i18n';
+const ui = getData(Astro.currentLocale).ui;
+const expertiseFile = getData(Astro.currentLocale).expertise;
 import { icons } from '../lib/icons';
 
 type ExpertiseItem = {
@@ -16,8 +18,8 @@ const expertiseData = expertiseFile.items as ExpertiseItem[];
 <section id="expertise" class="py-20" style="scroll-margin-top: 80px;">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14 reveal">
-      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">What I do</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Expertise</h2>
+      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">{ui.expertise.eyebrow}</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">{ui.expertise.title}</h2>
     </div>
 
     <div class="expertise-grid max-w-6xl mx-auto">
